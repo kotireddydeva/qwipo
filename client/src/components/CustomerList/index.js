@@ -12,14 +12,14 @@ const CustomerList = () => {
   const [customersPerPage] = useState(5);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/customers")
+    axios.get("${process.env.REACT_APP_API_URL}/api/customers")
       .then(res => setCustomers(res.data.data))
       .catch(err => console.error(err));
   }, []);
 
   const deleteUser = (id) => {
     axios
-      .delete(`http://localhost:5000/api/customers/${id}`)
+      .delete(`${process.env.REACT_APP_API_URL}/api/customers/${id}`)
       .then((res) => {
         setCustomers(customers.filter((c) => c.id !== id));
       })

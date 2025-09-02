@@ -21,7 +21,7 @@ const AddressForm = ({ customerId, refresh, editingAddress, clearEditing }) => {
     e.preventDefault();
 
     if (editingAddress) {
-      axios.put(`http://localhost:5000/api/addresses/${editingAddress.id}`, form)
+      axios.put(`${process.env.REACT_APP_API_URL}/api/addresses/${editingAddress.id}`, form)
         .then(() => {
           setForm({ addressDetails: "", city: "", state: "", pinCode: "" });
           clearEditing();
@@ -29,7 +29,7 @@ const AddressForm = ({ customerId, refresh, editingAddress, clearEditing }) => {
         })
         .catch(err => console.error(err));
     } else {
-      axios.post(`http://localhost:5000/api/customers/${customerId}/addresses`, form)
+      axios.post(`${process.env.REACT_APP_API_URL}/api/customers/${customerId}/addresses`, form)
         .then(() => {
           setForm({ addressDetails: "", city: "", state: "", pinCode: "" });
           refresh();
