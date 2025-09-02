@@ -8,7 +8,7 @@ const CustomerForm = ({ customerId }) => {
 
   useEffect(() => {
     if (customerId) {
-      axios.get(`${process.env.REACT_APP_API_URL}/api/customers/${customerId}`)
+      axios.get(`http://localhost:5000/api/customers/${customerId}`)
         .then(res => {
           setForm({
             firstName: res.data.data.first_name,
@@ -23,8 +23,8 @@ const CustomerForm = ({ customerId }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const url = customerId
-      ? `${process.env.REACT_APP_API_URL}/api/customers/${customerId}`
-      : "${process.env.REACT_APP_API_URL}/api/customers";
+      ? `http://localhost:5000/api/customers/${customerId}`
+      : `http://localhost:5000/api/customers`;
 
     const method = customerId ? axios.put : axios.post;
 

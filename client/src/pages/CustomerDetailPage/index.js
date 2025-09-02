@@ -10,7 +10,7 @@ const CustomerDetailPage = () => {
   const [customer, setCustomer] = useState(null);
 
   useEffect(() => {
-    axios.get(`${process.env.REACT_APP_API_URL}/api/customers/${id}`)
+    axios.get(`http://localhost:5000/api/customers/${id}`)
       .then(res => setCustomer(res.data.data))
       .catch(err => console.error(err));
   }, [id]);

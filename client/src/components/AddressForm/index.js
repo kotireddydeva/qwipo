@@ -21,7 +21,7 @@ const AddressForm = ({ customerId, refresh, editingAddress, clearEditing }) => {
     e.preventDefault();
 
     if (editingAddress) {
-      axios.put(`${process.env.REACT_APP_API_URL}/api/addresses/${editingAddress.id}`, form)
+      axios.put(`http://localhost:5000/api/addresses/${editingAddress.id}`, form)
         .then(() => {
           setForm({ addressDetails: "", city: "", state: "", pinCode: "" });
           clearEditing();
