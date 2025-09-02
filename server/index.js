@@ -15,6 +15,10 @@ const db = new sqlite3.Database('./database.db', (err) => {
 
 // Get All Customers Data
 
+app.get('/', (req, res) => {
+    res.send('Server Running at 5000');
+})
+
 app.get('/api/customers', (req, res) => {
     const sql = "SELECT * FROM customers";
     db.all(sql, [], (err, rows) => {
