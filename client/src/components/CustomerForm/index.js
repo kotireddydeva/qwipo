@@ -39,16 +39,19 @@ const CustomerForm = ({ customerId }) => {
         placeholder="First Name"
         value={form.firstName}
         onChange={e => setForm({ ...form, firstName: e.target.value })}
+        required
       />
       <input
         placeholder="Last Name"
         value={form.lastName}
         onChange={e => setForm({ ...form, lastName: e.target.value })}
+        required
       />
       <input
         placeholder="Phone"
         value={form.phoneNumber}
         onChange={e => setForm({ ...form, phoneNumber: e.target.value })}
+        required
       />
       <button type="submit" className="btn">
         {customerId ? "Update" : "Create"}

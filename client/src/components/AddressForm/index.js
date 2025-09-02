@@ -40,13 +40,13 @@ const AddressForm = ({ customerId, refresh, editingAddress, clearEditing }) => {
 
   return (
     <form onSubmit={handleSubmit} className="form">
-      <input placeholder="Address" value={form.addressDetails}
+      <input placeholder="Address" value={form.addressDetails} required
         onChange={e => setForm({ ...form, addressDetails: e.target.value })} />
       <input placeholder="City" value={form.city}
         onChange={e => setForm({ ...form, city: e.target.value })} />
-      <input placeholder="State" value={form.state}
+      <input placeholder="State" value={form.state} required
         onChange={e => setForm({ ...form, state: e.target.value })} />
-      <input placeholder="Pin Code" value={form.pinCode}
+      <input placeholder="Pin Code" value={form.pinCode} required
         onChange={e => setForm({ ...form, pinCode: e.target.value })} />
       <button type="submit" className="btn">{editingAddress ? "Update Address" : "Add Address"}</button>
       {editingAddress && <button type="button" className="btn" onClick={clearEditing}>Cancel</button>}
