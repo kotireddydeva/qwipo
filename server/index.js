@@ -65,6 +65,7 @@ app.get('/api/customers', async (req, res) => {
 // Create Customer
 app.post('/api/customers', async (req, res) => {
   const { firstName, lastName, phoneNumber } = req.body;
+  console.log(firstName,lastName,phoneNumber);
   if (!firstName || !lastName || !phoneNumber) {
     return res.status(400).json({ error: "All fields are required" });
   }
