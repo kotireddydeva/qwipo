@@ -125,7 +125,7 @@ body {
 }
 
 .customer-table thead {
-  background-color: #000000;
+  background-color: #0F4C81;
   color: #ffffff;
   text-align: left;
 }
@@ -154,7 +154,8 @@ body {
 
 .action-link {
   color: #000000;
-  text-decoration: none;
+  font-weight: bold;
+  text-decoration: underline;
   font-weight: 500;
   margin-right: 10px;
   transition: color 0.2s ease;
