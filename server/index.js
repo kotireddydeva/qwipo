@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const sqlite3 = require('sqlite3').verbose();
 const { open } = require('sqlite');
@@ -23,12 +24,11 @@ app.use(cors({
   credentials: true
 }));
 
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;   // ✅ FIXED
 const dbPath = path.join(__dirname, 'database.db');
 
 let db = null;
 
-// Initialize DB and Server
 const initializeDbAndServer = async () => {
   try {
     db = await open({
@@ -45,9 +45,8 @@ const initializeDbAndServer = async () => {
 
 initializeDbAndServer();
 
-// Root Route
 app.get('/', (req, res) => {
-  res.send('Server Running at 5000');
+  res.send(`Server Running at ${PORT}`);
 });
 
 // ====== CUSTOMERS CRUD ====== //
