@@ -1,6 +1,6 @@
 require('dotenv').config();
 const express = require('express');
-const sqlite3 = require('sqlite3').verbose();
+const sqlite3 = require('sqlite3');
 const { open } = require('sqlite');
 const path = require('path');
 const cors = require('cors');
