@@ -8,7 +8,7 @@ const AddressList = ({ customerId }) => {
 
   const fetchAddresses = () => {
     axios
-      .get(`http://localhost:5000/api/customers/${customerId}/addresses`)
+      .get(`https://qwipo-backend.vercel.app/api/customers/${customerId}/addresses`)
       .then(res => setAddresses(res.data.data || []))
       .catch(err => console.error("Error fetching addresses:", err));
   };
@@ -22,7 +22,7 @@ const AddressList = ({ customerId }) => {
   };
 
   const handleDelete = (id) => {
-    axios.delete(`http://localhost:5000/api/addresses/${id}`)
+    axios.delete(`https://qwipo-backend.vercel.app/api/addresses/${id}`)
       .then(() => fetchAddresses())
       .catch(err => console.error(err));
   };
