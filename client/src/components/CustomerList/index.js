@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { MdDelete } from "react-icons/md";
 import axios from "axios";
 
+const {REACT_APP_API_URL} = process.env;
+
 const CustomerList = () => {
   const [customers, setCustomers] = useState([]);
   const [search, setSearch] = useState("");
@@ -12,14 +14,14 @@ const CustomerList = () => {
   const [customersPerPage] = useState(5);
 
   useEffect(() => {
-    axios.get('https://qwipo-server.vercel.app/api/customers')
+    axios.get(`${REACT_APP_API_URL}/api/customers`)
       .then(res => setCustomers(res.data.data))
       .catch(err => console.error(err));
   }, []);
 
   const deleteUser = (id) => {
     axios
-      .delete(`https://qwipo-server.vercel.app/api/customers/${id}`)
+      .delete(`${REACT_APP_API_URL}/api/customers/${id}`)
       .then((res) => {
         setCustomers(customers.filter((c) => c.id !== id));
       })

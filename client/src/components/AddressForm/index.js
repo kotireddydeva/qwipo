@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+const {REACT_APP_API_URL} = process.env;
+
 const AddressForm = ({ customerId, refresh, editingAddress, clearEditing }) => {
   const [form, setForm] = useState({ addressDetails: "", city: "", state: "", pinCode: "" });
 
@@ -21,7 +23,7 @@ const AddressForm = ({ customerId, refresh, editingAddress, clearEditing }) => {
     e.preventDefault();
 
     if (editingAddress) {
-      axios.put(`https://qwipo-server.vercel.app/api/addresses/${editingAddress.id}`, form)
+      axios.put(`${REACT_APP_API_URL}/api/addresses/${editingAddress.id}`, form)
         .then(() => {
           setForm({ addressDetails: "", city: "", state: "", pinCode: "" });
           clearEditing();

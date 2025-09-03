@@ -5,12 +5,14 @@ import axios from "axios";
 import AddressList from "../../components/AddressList";
 import Header from "../../components/Header";
 
+const {REACT_APP_API_URL} = process.env;
+
 const CustomerDetailPage = () => {
   const { id } = useParams();
   const [customer, setCustomer] = useState(null);
 
   useEffect(() => {
-    axios.get(`https://qwipo-server.vercel.app/api/customers/${id}`)
+    axios.get(`${REACT_APP_API_URL}/api/customers/${id}`)
       .then(res => setCustomer(res.data.data))
       .catch(err => console.error(err));
   }, [id]);

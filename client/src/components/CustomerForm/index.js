@@ -2,13 +2,15 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
+const {REACT_APP_API_URL} = process.env;
+
 const CustomerForm = ({ customerId }) => {
   const [form, setForm] = useState({ firstName: "", lastName: "", phoneNumber: "" });
   const navigate = useNavigate();
 
   useEffect(() => {
     if (customerId) {
-      axios.get(`https://qwipo-server.vercel.app/api/customers/${customerId}`)
+      axios.get(`${REACT_APP_API_URL}/api/customers/${customerId}`)
         .then(res => {
           setForm({
             firstName: res.data.data.first_name,
@@ -23,8 +25,8 @@ const CustomerForm = ({ customerId }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const url = customerId
-      ? `https://qwipo-server.vercel.app/api/customers/${customerId}`
-      : `https://qwipo-server.vercel.app/api/customers`;
+      ? `${REACT_APP_API_URL}/api/customers/${customerId}`
+      : `${REACT_APP_API_URL}/api/customers`;
 
     const method = customerId ? axios.put : axios.post;
 

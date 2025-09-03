@@ -2,13 +2,15 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import AddressForm from "../AddressForm";
 
+const {REACT_APP_API_URL} = process.env;
+
 const AddressList = ({ customerId }) => {
   const [addresses, setAddresses] = useState([]);
   const [editingAddress, setEditingAddress] = useState(null);
 
   const fetchAddresses = () => {
     axios
-      .get(`https://qwipo-server.vercel.app/api/customers/${customerId}/addresses`)
+      .get(`${REACT_APP_API_URL}/api/customers/${customerId}/addresses`)
       .then(res => setAddresses(res.data.data || []))
       .catch(err => console.error("Error fetching addresses:", err));
   };
@@ -22,7 +24,7 @@ const AddressList = ({ customerId }) => {
   };
 
   const handleDelete = (id) => {
-    axios.delete(`https://qwipo-server.vercel.app/api/addresses/${id}`)
+    axios.delete(`${REACT_APP_API_URL}/api/addresses/${id}`)
       .then(() => fetchAddresses())
       .catch(err => console.error(err));
   };
