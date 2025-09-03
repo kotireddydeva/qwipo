@@ -12,14 +12,14 @@ const CustomerList = () => {
   const [customersPerPage] = useState(5);
 
   useEffect(() => {
-    axios.get('https://qwipo-backend.vercel.app/api/customers')
+    axios.get('https://qwipo-server.vercel.app/api/customers')
       .then(res => setCustomers(res.data.data))
       .catch(err => console.error(err));
   }, []);
 
   const deleteUser = (id) => {
     axios
-      .delete(`https://qwipo-backend.vercel.app/api/customers/${id}`)
+      .delete(`https://qwipo-server.vercel.app/api/customers/${id}`)
       .then((res) => {
         setCustomers(customers.filter((c) => c.id !== id));
       })

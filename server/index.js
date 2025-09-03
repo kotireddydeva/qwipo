@@ -24,7 +24,7 @@ app.use(cors({
   credentials: true
 }));
 
-const PORT = process.env.PORT || 5000;   // ✅ FIXED
+const PORT = process.env.PORT || 5000;   
 const dbPath = path.join(__dirname, 'database.db');
 
 let db = null;

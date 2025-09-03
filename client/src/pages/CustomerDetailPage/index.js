@@ -10,7 +10,7 @@ const CustomerDetailPage = () => {
   const [customer, setCustomer] = useState(null);
 
   useEffect(() => {
-    axios.get(`https://qwipo-backend.vercel.app/api/customers/${id}`)
+    axios.get(`https://qwipo-server.vercel.app/api/customers/${id}`)
       .then(res => setCustomer(res.data.data))
       .catch(err => console.error(err));
   }, [id]);

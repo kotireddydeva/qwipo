@@ -21,7 +21,7 @@ const AddressForm = ({ customerId, refresh, editingAddress, clearEditing }) => {
     e.preventDefault();
 
     if (editingAddress) {
-      axios.put(`https://qwipo-backend.vercel.app/api/addresses/${editingAddress.id}`, form)
+      axios.put(`https://qwipo-server.vercel.app/api/addresses/${editingAddress.id}`, form)
         .then(() => {
           setForm({ addressDetails: "", city: "", state: "", pinCode: "" });
           clearEditing();

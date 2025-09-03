@@ -8,7 +8,7 @@ const CustomerForm = ({ customerId }) => {
 
   useEffect(() => {
     if (customerId) {
-      axios.get(`https://qwipo-backend.vercel.app/api/customers/${customerId}`)
+      axios.get(`https://qwipo-server.vercel.app/api/customers/${customerId}`)
         .then(res => {
           setForm({
             firstName: res.data.data.first_name,
@@ -23,8 +23,8 @@ const CustomerForm = ({ customerId }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const url = customerId
-      ? `https://qwipo-backend.vercel.app/api/customers/${customerId}`
-      : `https://qwipo-backend.vercel.app/api/customers`;
+      ? `https://qwipo-server.vercel.app/api/customers/${customerId}`
+      : `https://qwipo-server.vercel.app/api/customers`;
 
     const method = customerId ? axios.put : axios.post;
 
