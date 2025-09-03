@@ -12,7 +12,7 @@ const CustomerList = () => {
   const [customersPerPage] = useState(5);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/customers')
+    axios.get('https://qwipo-backend.vercel.app/api/customers')
       .then(res => setCustomers(res.data.data))
       .catch(err => console.error(err));
   }, []);
